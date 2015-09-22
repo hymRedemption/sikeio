@@ -6,6 +6,7 @@ class Checkin::DiscourseAPI
   MYAPI = "#{HOST}/myapi"
 
   def discourse_user(username)
+    username.downcase!
     url = HOST + "/admin/users/#{username}.json"
     begin
       r = RestClient.get url, :params => {:api_key => TOKEN, :api_username => ADMIN}
