@@ -55,7 +55,10 @@ body id=page_identifier class="sike-global"
       - course = {"design101" => "设计", "css0to1" => "前端", "ios" => "iOS", "nodejs" => "NodeJS"}
       - course.each do |key, value|
         li
-          - if @show_info[:page_at] == key
+          - if key == "ios"
+            a
+              |#{value}(建设中...)
+          - elsif @show_info[:page_at] == key
             a style="text-decoration: underline;"
               |#{value}
           - else
